@@ -27,13 +27,12 @@ public record Position(int x, int y) {
     public Position nextPosition(Direction direction) {
         Offset offset = offsets.get(direction.toChar());
 
+        int new_x = x + offset.x();
+        int new_y = y + offset.y();
+
         if (direction instanceof North || direction instanceof East) {
-            int new_x = x + offset.x();
-            int new_y = y + offset.y();
             return new Position(new_x < gridSize ? new_x : 0, new_y < gridSize ? new_y : 0);
         } else {
-            int new_x = x + offset.x();
-            int new_y = y + offset.y();
             return new Position(new_x < 0 ? gridSize - 1 : new_x, new_y < 0 ? gridSize - 1 : new_y);
         }
     }
