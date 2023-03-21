@@ -110,4 +110,13 @@ public class MarsRoverTest {
         assertEquals(9, marsRover.position().y());
         assertEquals('S', marsRover.direction().toChar());
     }
+
+    @Test
+    public void testRoverInExpectedPosition() {
+        var marsRover = new MarsRover(new Position(0, 0), new North());
+        marsRover = marsRover.execute("MMRMMLM");
+        assertEquals(2, marsRover.position().x());
+        assertEquals(3, marsRover.position().y());
+        assertEquals('N', marsRover.direction().toChar());
+    }
 }
